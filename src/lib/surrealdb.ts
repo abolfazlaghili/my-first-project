@@ -21,7 +21,7 @@ let dbInstance: Surreal | null = null
  * @returns {Promise<Surreal>} The SurrealDB instance.
  * @throws Will throw an error if the connection or authentication fails.
  */
-export async function sdb(): Promise<Surreal> {
+export async function surrealdb(): Promise<Surreal> {
   if (dbInstance) {
     return dbInstance
   }
@@ -47,4 +47,4 @@ export async function sdb(): Promise<Surreal> {
   }
 }
 
-export default sdb
+export default surrealdb

@@ -1,10 +1,6 @@
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider, SignedIn, SignedOut, UserButton, SignInButton } from '@clerk/nextjs'
 import './globals.css'
 import type { Metadata } from 'next'
-;<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css ,//cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-/>
 
 export const metadata: Metadata = {
   title: 'Clerk Next.js Quickstart',
@@ -19,7 +15,17 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="bg-gray-100">{children}</body>
+        <body className="bg-gray-100">
+          <header className="flex justify-end p-4">
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+          </header>
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   )
